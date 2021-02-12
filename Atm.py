@@ -1,24 +1,34 @@
-class Atm(object):
-    def __init__(self, model, color, company, bank_account):
-        self.model = model
-        self.color = color
-        self.company = company
-        self.bank_account = bank_account
+class Atm:
+    def __init__(self,cardnumber,pin):
+        self.cardnumber = cardnumber
+        self.pin = pin
+
+    def check_balance(self):
+        print("Your balance is 50000")
+
+    def withdrawl(self,amount):
+        new_amount = 50000 - amount
+        print("you have withdrawn amount "+str(amount) +". Your remaining balance is "+ str(new_amount))
 
 
-    def start(self):
-        print("started")
+def main():
+    Card_number = input("insert your card number:- ")
+    pin_number  = input("enter your pin number:- ")
 
-    def stop(self):
-        print("finished")
+    new_user =  Atm(Card_number ,pin_number)
 
-    def accelarate(self):
-        print("accelarating")
-        "accelerator functionality"
+    print("Choose your activity ")
+    print("1.Balance Enquriy   2.withdrawl")
+    activity = int(input("enter activity number :- "))
 
-    def withdrawal(self, withdrawl):
-        print("get your withdrawal")
-        "withdrawal here"
+    if (activity == 1):
+        new_user.check_balance()
+    elif (activity == 2):
+        amount = int(input("enter the amount:- "))
+        new_user.withdrawl(amount)
+    else:
+        print("enter a valid number")
 
-onsite = Atm("pin","red","onsite","$8000.00")
-print(onsite.bank_account)
+
+if __name__ == "__main__":
+    main()
